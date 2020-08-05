@@ -9,3 +9,7 @@ class Player:
         self.current_room = current_room
     
     # TODO: create __str__ method to print out current room's description
+    def __str__(self):
+        return f"""
+
+        """
