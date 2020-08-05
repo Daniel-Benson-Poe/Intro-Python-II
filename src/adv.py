@@ -1,4 +1,5 @@
-from room import Room
+from room import Room, Outside, Foyer, Overlook, Narrow, Treasure
+from player import Player
 
 # Declare all the rooms
 
@@ -37,7 +38,8 @@ room['treasure'].s_to = room['narrow']
 # Main
 #
 
-# Make a new player object that is currently in the 'outside' room.
+# TODO: Make a new player object that is currently in the 'outside' room.
+# player = Player(name, Outside())  # default parameters should be passed into this original player call.
 
 # Write a loop that:
 #
@@ -49,3 +51,22 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+# TODO: create repr that allows user input of the form "n", "s", "e", "w", or "q"
+# Along the lines of: input("enter one of the following keys: 'n' (go north), 's' (go south), 'e' (go east), 'w' (go west), 'q' (quit game)")
+# Upon user input, create a loop that checks the user's input
+# Start by checking if input is recognized as an acceptable response - if not, tell the player to try again
+# If the player enters a direction that the current room does not connect to, let player know and have them try again
+# Run code within the if conditional that passes: 
+#                               # if n, move player class to the current room's n_to if able
+#                               # if s, move player class to the current room's s_to if able
+#                               # if e, move player class to the current room's e_to if able
+#                               # if w, move player class to the current room's w_to if able
+
+# TODO: create loop that prints out player's current room, a description of the room, and waits for player to input a cardinal direction
+# print player.current_room.__str__  # This will print out string that includes current room name and current room description - built in to Room class
+# run repr function created earlier - wait for user response
+# repeat the above steps 
+# This loop should be controlled by a while_game_running boolean; True until player inputs 'q' to quit the game
+# entering 'q' will trigger the while_game_running boolean to switch from True to False, exiting the loop
+# Include text that thanks the player for playing?
