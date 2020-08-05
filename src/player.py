@@ -8,8 +8,6 @@ class Player:
         self.name = name
         self.current_room = current_room
     
-    # TODO: create __str__ method to print out current room's description
+    # TODO: create __str__ method to print out player movement.
     def __str__(self):
-        return f"""
-
-        """
+        return f"You have entered the {self.current_room.name}."
