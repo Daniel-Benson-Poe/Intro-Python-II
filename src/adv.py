@@ -3,6 +3,7 @@ from player import Player
 from items import Item
 import time
 from enemies import Enemy
+from battle_sequence import Battle
 
 # Declare the items
 

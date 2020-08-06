@@ -15,3 +15,6 @@ class Enemy:
 
     def print_description(self):
         print(f"A nasty {self.name} stands before you, ready to attack.")
+
+    def print_attack(self):
+        print(f"The {self.name} swings at you with its razor sharp claws.")
