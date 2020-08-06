@@ -18,5 +18,8 @@ class Player:
         self.inventory.append(item)
         self.print_inventory()
 
+    def remove_item_from_inventory(self, item):
+        self.inventory.remove(item)
+
     def print_inventory(self):
         print("Your inventory contains: ", [f"{item.name}, {item.description}" for item in self.inventory],'\n')

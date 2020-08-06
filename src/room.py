@@ -22,3 +22,6 @@ class Room:
 
     def remove_item_from_room(self, item):
         self.items.remove(item)
+
+    def print_items_in_room(self):
+        print(f"The room contains the following item/s: {[i.name for i in self.items]}")
