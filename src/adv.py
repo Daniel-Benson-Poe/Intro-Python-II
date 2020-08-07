@@ -101,8 +101,8 @@ while True:
         player.current_room.print_items_in_room()
         time.sleep(1)
 
-    if player.current_room.enemies:
-        player.current_room.enemies.print_description()
+    if player.current_room.enemy:
+        player.current_room.enemy.print_description()
         # Undergo battle sequence
     # Upon user input, create a loop that checks the user's input
     # Start by checking if input is recognized as an acceptable response - if not, tell the player to try again
@@ -202,9 +202,16 @@ to north. The smell of gold permeates the air."""
                     player.current_room.n_to = room['treasure']
                     player.current_room = player.current_room.n_to
                     player.remove_item_from_inventory(items['torch'])
-                    player.current_room.enemies = Enemy("Goblin")
+                    player.current_room.enemy = Enemy("Goblin")
                     print(f"The lit {items['torch'].name} has been placed upon a holster on the nearby wall. It has been removed from your inventory.\n")
                     time.sleep(1)
+                    print(player.current_room.__str__())
+                    time.sleep(1)
+                    player.current_room.enemy.print_description()
+                    time.sleep(1)
+                    battle = Battle(player, player.current_room.enemy)
+                    battle.main_battle_loop()
+                    player.current_room.enemy = None
                     continue
             else:
                 print("You have no items you can use in this room.\n")

@@ -20,33 +20,4 @@ player = Player("Player Dummy", room, inventory=[items['dagger']])
 
 test_battle = Battle(player, enemy)
 
-test_battle.determine_turn_cycle()
-print(f"Turn order: First action: {test_battle.first.name}, Second action: {test_battle.second.name}")
-
-while player.health > 0 and enemy.health > 0:
-    if test_battle.first == player:
-        print("Input your action: \n")
-        action = input("'a' (to attack), 'f' (flee)\n")
-
-        if action == 'a':
-            dmg_dealt = test_battle.attack_sequence(weapon_dmg_range=[10, 15])
-            test_battle.take_damage(dmg_dealt)
-            print(f"{player.name} deals {dmg_dealt} damage to {enemy.name}.")
-            if enemy.health < 0:
-                print(f"{enemy.name} has 0 hit points left.")
-            else:    
-                print(f"{enemy.name} has {enemy.health} hit points left.")
-            test_battle.end_turn()
-
-        if action == 'f':
-            print("You have fled from battle.")
-            exit()
-
-    else:
-        dmg_dealt = test_battle.attack_sequence()
-        test_battle.take_damage(dmg_dealt)
-        print(f"{enemy.name} deals {dmg_dealt} damage to {player.name}.")
-        print(f"{player.name} has {player.health} hit points left.")
-        test_battle.end_turn()
-
-test_battle.end_battle_sequence(player, enemy)
+test_battle.main_battle_loop()

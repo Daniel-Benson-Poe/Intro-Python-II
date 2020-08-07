@@ -7,7 +7,7 @@ class Room:
     # the directional parameters should default to None and be overridden depending on each room
     def __init__(self, name, description, n_to=None, s_to=None, 
                  e_to=None, w_to=None, items=[], items_useable=[],
-                 enemies=None):
+                 enemy=None):
         self.name = name  # room name
         self.description = description  # room description
         self.n_to = n_to  # room connected to the north
@@ -16,7 +16,7 @@ class Room:
         self.w_to = w_to  # room connected to the west
         self.items = items  # items that can be found in the room
         self.items_useable = items_useable  # items that can be used in this room
-        self.enemies = enemies  # Enemies found within the room
+        self.enemy = enemy  # Enemies found within the room
 
     # Add __str__ method for printing out location name and description
     def __str__(self):
