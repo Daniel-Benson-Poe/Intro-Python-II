@@ -17,8 +17,8 @@ class Battle:
         self.second = second
         self.participant_turn = self.first
 
-    def attack_sequence(self):
-        return self.participant_turn.roll_damage()
+    def attack_sequence(self, weapon_dmg_range=[5, 10]):
+        return self.participant_turn.roll_damage(weapon_dmg_range)
 
     def take_damage(self, dmg):
         return self.second.take_damage(dmg)
@@ -27,3 +27,12 @@ class Battle:
         temp_first_storage = self.first
         self.first = self.second
         self.second = temp_first_storage
+
+    def end_battle_sequence(self, player, enemy):
+        if player.health <= 0:
+            print("You have run out of health and you faint from your wounds.")
+        elif enemy.health <= 0:
+            print("You have defeated the enemy!")
+
+        else:
+            print("You have fled from battle.")

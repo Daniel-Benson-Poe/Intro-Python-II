@@ -1,3 +1,5 @@
+import random
+
 # Write a class to hold player information, e.g. what room they are in
 # currently.
 
@@ -27,7 +29,7 @@ class Player:
 
     def roll_damage(self, weapon_dmg_range=[5, 10]):
         # RNG for damage within a certain range
-        return random.randint(weapon_range[0], weapon_range[1])
+        return random.randint(weapon_dmg_range[0], weapon_dmg_range[1])
     
     def take_damage(self, damage):
         # Removes damage dealt from own health

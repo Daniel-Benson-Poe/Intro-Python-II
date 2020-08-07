@@ -5,10 +5,10 @@ class Enemy:
         self.name = name
         self.health = health
 
-    def roll_damage(self):
+    def roll_damage(self, weapon_dmg_range):
         # RNG for damage within a certain range
-        return random.randint(5, 10)
-    
+        return random.randint(weapon_dmg_range[0], weapon_dmg_range[1])
+        
     def take_damage(self, damage):
         # Removes damage dealt from own health
         self.health = self.health - damage
