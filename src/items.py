@@ -9,3 +9,9 @@ class Item:
     def __init__(self, name, description):
         self.name = name
         self.description = description
+
+class Weapon(Item):
+
+    def __init__(self, name, description, dmg_range=[]):
+        super().__init__(name, description)
+        self.dmg_range = dmg_range
