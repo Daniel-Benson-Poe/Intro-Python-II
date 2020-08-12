@@ -20,8 +20,8 @@ class Battle:
         self.participant_turn = self.first
 
 
-    def attack_sequence(self, weapon_dmg_range=[5, 10]):
-        return self.participant_turn.roll_damage(weapon_dmg_range)
+    def attack_sequence(self):
+        return self.participant_turn.roll_damage()
 
 
     def take_damage(self, dmg):
@@ -41,10 +41,10 @@ class Battle:
             print("You have defeated the enemy!\n")
 
         else:
-            print("You have fled from battle.\n")
+            print("\nYou have fled from battle.\n")
 
 
-    def main_battle_loop(self, player_weapon_dmg_range=[5, 10], enemy_weapon_dmg_range=[5, 10]):
+    def main_battle_loop(self):
         self.determine_turn_cycle()
         print(f"\nTurn order: First action: {self.first.name}, Second action: {self.second.name}\n")
         time.sleep(1)
@@ -54,7 +54,7 @@ class Battle:
                 action = input("'a' (to attack), 'f' (flee)\n")
 
                 if action == 'a':
-                    dmg_dealt = self.attack_sequence(player_weapon_dmg_range)
+                    dmg_dealt = self.attack_sequence()
                     self.take_damage(dmg_dealt)
                     print(f"\n{self.player.name} deals {dmg_dealt} damage to {self.enemy.name}.\n")
                     time.sleep(1)
@@ -67,12 +67,13 @@ class Battle:
                     self.end_turn()
 
                 if action == 'f':
-                    print("You have fled from battle.\n")
                     time.sleep(1)
                     break
 
             else:
-                dmg_dealt = self.attack_sequence(enemy_weapon_dmg_range)
+                dmg_dealt = self.attack_sequence()
+                self.enemy.print_attack()
+                time.sleep(1)
                 self.take_damage(dmg_dealt)
                 print(f"{self.enemy.name} deals {dmg_dealt} damage to {self.player.name}.\n")
                 time.sleep(1)
